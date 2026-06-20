@@ -50,10 +50,11 @@ except Exception:
 
 
 # ------------------------------- CONFIG -------------------------------
-BASE_DIR   = r"d:\msc"                          # folder that contains "images"
-IMAGES_DIR = os.path.join(BASE_DIR, "images")   # walked recursively
-PCA_DIR    = os.path.join(BASE_DIR, "PCA")      # per-image PCA->RGB images go here
-FEATURES_DIR = os.path.join(PCA_DIR, "_features")  # embeddings + cross-image tables
+BASE_DIR     = r"d:\msc"                               # folder that contains "images"
+IMAGES_DIR   = os.path.join(BASE_DIR, "images")       # walked recursively
+RESULTS_DIR  = os.path.join(BASE_DIR, "Results")      # top-level output folder
+PCA_DIR      = os.path.join(RESULTS_DIR, "PCA")       # per-image PCA->RGB images go here
+FEATURES_DIR = os.path.join(RESULTS_DIR, "Features")  # embeddings + cross-image tables
 
 MODEL_NAME = "dinov2_vits14"
 IMG_SIZE   = 224
@@ -438,7 +439,7 @@ def main():
     ok = sum(m["status"] == "ok" for m in manifest)
     print(f"\ndone. {ok}/{len(images)} images featurised.")
     print(f"   PCA images   -> {PCA_DIR}")
-    print(f"   feature data -> {FEATURES_DIR}")
+    print(f"   features     -> {FEATURES_DIR}")
 
 
 if __name__ == "__main__":
