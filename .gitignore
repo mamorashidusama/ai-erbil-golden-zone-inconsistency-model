@@ -1,0 +1,4 @@
+.tmp.driveupload/
+__pycache__/
+*.pyc
+.DS_Store
